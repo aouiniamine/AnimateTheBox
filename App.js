@@ -43,12 +43,18 @@ export default function App() {
     outputRange: ["0deg", "170deg"]
   })
 
+  const color = translateX.interpolate({
+    inputRange: [0, 100, maxPositionX - 100, maxPositionX],
+    outputRange: ["orange", "orange", "black", "black"]
+  })
+
   return (
     <View style={styles.wrapper}>
       <View style={styles.container}>
         <Animated.View 
           style={[styles.box, 
-            {
+            { 
+              backgroundColor: color,
               transform: [{translateX}, {translateY}, {rotate}]
             }
           ]}
