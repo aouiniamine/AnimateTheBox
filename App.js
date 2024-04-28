@@ -38,13 +38,18 @@ export default function App() {
     ).start()
   }, [])
 
+  const rotate = translateY.interpolate({
+    inputRange: [0, maxPositionX],
+    outputRange: ["0deg", "170deg"]
+  })
+
   return (
     <View style={styles.wrapper}>
       <View style={styles.container}>
         <Animated.View 
           style={[styles.box, 
             {
-              transform: [{translateX}, {translateY}]
+              transform: [{translateX}, {translateY}, {rotate}]
             }
           ]}
         />
